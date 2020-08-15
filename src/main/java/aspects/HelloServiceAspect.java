@@ -1,5 +1,6 @@
 package aspects;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
@@ -25,5 +26,15 @@ public class HelloServiceAspect {
     @AfterThrowing("execution(* services.HelloService.hello(..))")
     public void afterThrowing(){
         System.out.println("After Throwing Hello Aspect !!");
+    }
+
+    @Around("execution(* services.HelloService.helloAround(..))")
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+
+        System.out.println("Before HelloAround !!");
+        Object result = joinPoint.proceed();
+        System.out.println("After HelloAround !!");
+
+        return result;
     }
 }

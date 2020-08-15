@@ -12,7 +12,8 @@ public class Main {
                     new AnnotationConfigApplicationContext(ProjectConfig.class)) {
 
             HelloService helloService = context.getBean(HelloService.class);
-            helloService.hello("Taoufiq");
+            String result  = helloService.helloAround("Taoufiq");
+            System.out.println("Result is : " + result);
 
         }
     }

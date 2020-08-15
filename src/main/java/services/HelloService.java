@@ -9,4 +9,10 @@ public class HelloService {
         System.out.println("Hello, " + name + "!");
         throw new RuntimeException("runtime exception !!");
     }
+
+    public String helloAround(String name) {
+        String message = "Hello, " + name + "!";
+        System.out.println(message);
+        return message;
+    }
 }
